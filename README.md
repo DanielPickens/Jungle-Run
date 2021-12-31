@@ -18,6 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install followi
 ```bash
 pip install pygame
 git clone https://github.com/DanielPickens/Jungle-Run
+cd Jungle-Run
 python main.py
 ```
 
