@@ -6,7 +6,7 @@
 
 Jungle Run is a simple 2D platformer game made with python and pygame.
 
-![Alt text](app.png?raw=true "Jungle Dash")
+![Alt text](![image](https://user-images.githubusercontent.com/72703981/147836532-4aca3910-97a3-4ff3-a39a-65e641bd8caf.png)
 
 
 
