@@ -27,3 +27,13 @@ Controls:
 * Use Space or Up arrow key to jump.
 * Use Left & Right arrow key to move in left & right direction respectively
 
+## Execution
+
+```
+git clone https://github.com/DanielPickens/Jungle-Run
+
+cd Jungle Run
+
+python main.py
+```
+
