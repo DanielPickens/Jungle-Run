@@ -6,7 +6,7 @@
 
 Jungle run is my simple 2D platformer game made with python and pygame.
 
-![Alt text](app.png?raw=true "Jungle Dash")
+(![image](https://user-images.githubusercontent.com/72703981/147840340-88fb6577-32e0-4986-936e-c2dc52a65bdc.png))
 
 
 
