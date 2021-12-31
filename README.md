@@ -1,16 +1,14 @@
-# Jungle Dash
+# Jungle Run
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
-Jungle Dash is a simple 2D platformer game made with python and pygame.
+Jungle Run is a simple 2D platformer game made with python and pygame.
 
 ![Alt text](app.png?raw=true "Jungle Dash")
 
-## How to Download
 
-Download this project from here [Download Jungle Dash](https://downgit.github.io/#/home?url=https://github.com/pyGuru123/Python-Games/tree/master/Jungle%20Dash)
 
 ## Requirements
 
@@ -19,6 +17,8 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install followi
 
 ```bash
 pip install pygame
+git clone https://github.com/DanielPickens/Jungle-Run
+python main.py
 ```
 
 ## Usage
