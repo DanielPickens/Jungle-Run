@@ -31,9 +31,7 @@ Controls:
 
 ```
 git clone https://github.com/DanielPickens/Jungle-Run
-
 cd Jungle Run
-
 python main.py
 ```
 
