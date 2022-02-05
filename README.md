@@ -7,6 +7,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/uses-brains.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/winter-is-coming.svg)](https://forthebadge.com)
 
+[![forthebadge](rect xmlns="http://www.w3.org/2000/svg" class="svg__rect" x="0" y="0" width="115.31" height="35" fill="#000000"/><rect xmlns="http://www.w3.org/2000/svg" class="svg__rect" x="113.31" y="0" width="125.83" height="35" fill="#FFFFFF"/>)](https://forthebadge.com)
+
 Jungle Run is my simple 2D platformer game made with python and pygame.
 
 ![image](https://user-images.githubusercontent.com/72703981/147840340-88fb6577-32e0-4986-936e-c2dc52a65bdc.png)
