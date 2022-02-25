@@ -1,6 +1,6 @@
 # Jungle Run
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-responsibility.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-responsibility.svg)](https://forthebadge.com)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
