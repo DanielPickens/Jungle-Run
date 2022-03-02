@@ -10,11 +10,11 @@ if not os.path.exists('levels/'):
 	os.mkdir('levels/')
 
 
-# EDIT HERE ( WINDOW SIZE & TILE SIZE )
+
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
 
-# Not to be edited
+
 pygame.init()
 clock = pygame.time.Clock()
 fps = 30
@@ -40,7 +40,7 @@ load_img = pygame.image.load('assets/load_btn.png')
 left_img = pygame.image.load('assets/left.png')
 right_img = pygame.image.load('assets/right.png')
 
-# load tiles
+# loads tiles
 tiles = []
 for t in sorted(os.listdir('tiles/'), key=lambda s: int(s[:-4])):
 	tile = pygame.image.load('tiles/' + t)
@@ -58,7 +58,7 @@ BLUE = (30, 144, 255)
 
 font = pygame.font.SysFont('Futura', 24)
 
-# Empty world data
+# Emptys the  world data
 world_data = []
 for r in range(rows):
 	c = [0] * cols
