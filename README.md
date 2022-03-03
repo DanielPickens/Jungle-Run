@@ -4,19 +4,24 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
+## Quick Start
 
+```
+cd Jungle Run
+python main.py
+```
 
-
-
-Jungle Run is my simple 2D platformer game made with python and pygame.
+Jungle Run is my simple 2D platformer game made with Pygame.
 
 ![image](https://user-images.githubusercontent.com/72703981/147840340-88fb6577-32e0-4986-936e-c2dc52a65bdc.png)
 
+## Quick Start
+```
+cd Jungle Run
+python main.py
+```
 
-
-## Requirements
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install following packages :-
+## Dependencies
 * Pygame
 
 ```bash
@@ -31,11 +36,9 @@ Controls:
 * Use Space or Up arrow key to jump.
 * Use Left & Right arrow key to move in left & right direction respectively
 
-## Execution
 
-```
-git clone https://github.com/DanielPickens/Jungle-Run
-cd Jungle Run
-python main.py
-```
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate..
 
