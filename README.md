@@ -25,7 +25,7 @@ pip install pygame
 
 ## Usage
 
-Double click the game.py to open the game, Click start to start playing the game. The objective of the game is to clear all levels & collecting diamonds without getting hit by bees, slimes or without touching water & lava.
+The objective of the game is to clear all levels & collecting diamonds without getting hit by bees, slimes or without touching water & lava.
 
 Controls:
 * Use Space or Up arrow key to jump.
@@ -35,5 +35,5 @@ Controls:
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate..
+Please make sure to update tests as appropriate.
 
