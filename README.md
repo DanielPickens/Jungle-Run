@@ -15,11 +15,6 @@ Jungle Run is my simple 2D platformer game made with Pygame.
 
 ![image](https://user-images.githubusercontent.com/72703981/147840340-88fb6577-32e0-4986-936e-c2dc52a65bdc.png)
 
-## Quick Start
-```
-cd Jungle Run
-python main.py
-```
 
 ## Dependencies
 * Pygame
