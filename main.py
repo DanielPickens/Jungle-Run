@@ -5,7 +5,7 @@ from pygame.locals import *
 
 from objects import World, Player, Button, draw_lines, load_level, draw_text, sounds
 
-# Window setup
+# GUI Window setup
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
 
