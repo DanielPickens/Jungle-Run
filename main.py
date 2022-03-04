@@ -12,7 +12,7 @@ tile_size = 50
 
 pygame.init()
 win = pygame.display.set_mode(SIZE)
-pygame.display.set_caption('DASH')
+pygame.display.set_caption('RUN')
 clock = pygame.time.Clock()
 FPS = 30
 
@@ -22,7 +22,7 @@ bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
 bg = bg1
 sun = pygame.image.load('assets/sun.png')
-jungle_dash = pygame.image.load('assets/jungle dash.png')
+jungle_run = pygame.image.load('assets/jungle dash.png')
 you_won = pygame.image.load('assets/won.png')
 
 
@@ -99,9 +99,9 @@ while running:
 
 	# drawing grid
 	# draw_lines(win)
-	# updating collisions for main_menu in game drawings for game play win or loss types
+	# checks for main_menu game drawing of game play win or loss types
 	if main_menu:
-		win.blit(jungle_dash, (WIDTH//2 - WIDTH//8, HEIGHT//4))
+		win.blit(jungle_run, (WIDTH//2 - WIDTH//8, HEIGHT//4))
 
 		play_game = play_btn.draw(win)
 		if play_game:
