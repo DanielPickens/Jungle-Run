@@ -99,7 +99,7 @@ while running:
 
 	# drawing grid
 	# draw_lines(win)
-
+	# updating collisions for main_menu in game drawings for game play win or loss types
 	if main_menu:
 		win.blit(jungle_dash, (WIDTH//2 - WIDTH//8, HEIGHT//4))
 
