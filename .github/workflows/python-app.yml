@@ -12,5 +12,4 @@ jobs:
     - run: |
         python -m pip install --upgrade pip
         python3 -m pip install pygame==2.0.0.dev12
-    - name: DynatraceAction
-    - uses: dynatrace-oss/dynatrace-github-action@v8
+    
