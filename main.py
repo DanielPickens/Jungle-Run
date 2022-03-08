@@ -5,11 +5,11 @@ from pygame.locals import *
 
 from objects import World, Player, Button, draw_lines, load_level, draw_text, sounds
 
-# GUI Window setup
+
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
 
-
+#Initialize game by declaring win as the rendering display variable
 pygame.init()
 win = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('RUN')
@@ -61,7 +61,7 @@ home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
 exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
 
-# function to reset a level
+# function to restart world after player reset
 def reset_level(level):
 	global cur_score
 	cur_score = 0
