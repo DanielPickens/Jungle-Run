@@ -14,10 +14,10 @@ if not os.path.exists('levels/'):
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
 
-
+#Initializes game board though method call of init()
 pygame.init()
 clock = pygame.time.Clock()
-fps = 30
+fps = 30  #declares fps to 33
 
 cols = WIDTH // tile_size
 rows = HEIGHT // tile_size
@@ -26,6 +26,7 @@ margin = 210
 win_width = WIDTH + margin
 win_height = HEIGHT
 
+#Declares game board variable of win that defines display mode via set_mode, that takes in two parameter pass reference arguements of win_width, win_height
 win = pygame.display.set_mode((win_width, win_height))
 pygame.display.set_caption('Level Editor')
 
