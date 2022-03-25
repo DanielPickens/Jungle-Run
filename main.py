@@ -35,7 +35,7 @@ data = load_level(level)
 player_pos = (10, 340)
 
 
-# creating world & objects
+# creating world & sprite objects group methods
 water_group = pygame.sprite.Group()
 lava_group = pygame.sprite.Group()
 forest_group = pygame.sprite.Group()
@@ -62,7 +62,7 @@ home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
 exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
 
-# function to restart world after player reset
+# resets world level after player reset
 def reset_level(level):
 	global cur_score
 	cur_score = 0
