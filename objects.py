@@ -84,7 +84,7 @@ class World:
 						water = Fluid('water_flow', col_count * tile_size, row_count * tile_size + tile_size // 2)
 						self.groups[1].add(water)
 					if col == 20:
-						# water block
+						# water still
 						water = Fluid('water_still', col_count * tile_size, row_count * tile_size)
 						self.groups[1].add(water)
 					if col == 21:
@@ -123,6 +123,10 @@ class World:
 						#Slime
 						slime = Slime(col_count * tile_size - 10, row_count * tile_size + tile_size // 4)
 						self.groups[4].add(slime)
+					if col == 30:
+						#bottom moving platform
+						platform = MovingPlatform('down', col_count * tile_size, row_count * tile_size)
+						self.groups[6].add(platform)
 
 
 				col_count += 1
