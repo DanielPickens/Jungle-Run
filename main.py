@@ -9,7 +9,7 @@ from objects import World, Player, Button, draw_lines, load_level, draw_text, so
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
 
-#Initialize game by declaring win as the rendering display variable
+
 pygame.init()
 win = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('RUN')
