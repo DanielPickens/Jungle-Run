@@ -186,20 +186,20 @@ class Player:
 					self.image = self.img_left[self.index]
 
 
-			# add gravity
+			# adds gravity
 			self.vel_y += 1
 			if self.vel_y > 10:
 				self.vel_y = 10
 			dy += self.vel_y
 
-			# check for colision
+			# check for collision in world.
 			self.in_air = True
 			for tile in self.world.tile_list:
-				# check for collision in x direction
+				# check for collision in world x direction
 				if tile[1].colliderect(self.rect.x+dx, self.rect.y, self.width, self.height):
 					dx = 0
 					
-				# check for collision in y direction
+				# check for collision in y direction in world
 				if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.width, self.height):
 					# check if below the ground
 					if self.vel_y < 0:
@@ -289,7 +289,7 @@ class Player:
 
 			self.win.blit(game_over_img, game_over_rect)
 
-		# displaying player on window
+		# displaying player on window image
 		self.win.blit(self.image, self.rect)
 		# pygame.draw.rect(self.win, (255, 255, 255), self.rect, 1)
 	

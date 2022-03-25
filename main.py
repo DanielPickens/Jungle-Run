@@ -5,9 +5,10 @@ from pygame.locals import *
 
 from objects import World, Player, Button, draw_lines, load_level, draw_text, sounds
 
-# Window setup
+
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
+
 
 pygame.init()
 win = pygame.display.set_mode(SIZE)
@@ -61,7 +62,7 @@ home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
 exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
 
-# function to reset a level
+# function to restart world after player reset
 def reset_level(level):
 	global cur_score
 	cur_score = 0
@@ -99,9 +100,9 @@ while running:
 
 	# drawing grid
 	# draw_lines(win)
-
+	# checks for main_menu game drawing of game play win or loss types
 	if main_menu:
-		win.blit(jungle_dash, (WIDTH//2 - WIDTH//8, HEIGHT//4))
+		win.blit(jungle_run, (WIDTH//2 - WIDTH//8, HEIGHT//4))
 
 		play_game = play_btn.draw(win)
 		if play_game:
