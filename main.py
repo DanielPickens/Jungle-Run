@@ -35,7 +35,7 @@ data = load_level(level)
 player_pos = (10, 340)
 
 
-# creating world & sprite objects group methods
+# creating world & sprite objects 
 water_group = pygame.sprite.Group()
 lava_group = pygame.sprite.Group()
 forest_group = pygame.sprite.Group()
