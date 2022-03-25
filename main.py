@@ -11,7 +11,7 @@ tile_size = 50
 
 pygame.init()
 win = pygame.display.set_mode(SIZE)
-pygame.display.set_caption('DASH')
+pygame.display.set_caption('RUN')
 clock = pygame.time.Clock()
 FPS = 30
 
@@ -21,12 +21,13 @@ bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
 bg = bg1
 sun = pygame.image.load('assets/sun.png')
-jungle_dash = pygame.image.load('assets/jungle dash.png')
+jungle_dash = pygame.image.load('assets/9fWW38bLEdofv77bUPLIu8zLN6.jpg')
 you_won = pygame.image.load('assets/won.png')
 
 
 # loading level 1
 level = 1
+
 max_level = len(os.listdir('levels/'))
 data = load_level(level)
 
