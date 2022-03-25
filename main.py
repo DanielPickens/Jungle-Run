@@ -22,7 +22,7 @@ bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
 bg = bg1
 sun = pygame.image.load('assets/sun.png')
-jungle_dash = pygame.image.load('assets/9fWW38bLEdofv77bUPLIu8zLN6.jpg')
+jungle_run = pygame.image.load('assets/9fWW38bLEdofv77bUPLIu8zLN6.jpg')
 you_won = pygame.image.load('assets/won.png')
 
 
