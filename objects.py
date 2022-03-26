@@ -348,6 +348,8 @@ class MovingPlatform(pygame.sprite.Sprite):
 			self.move_x = 1
 		elif type_ == 'up':
 			self.move_y = 1
+		elif type == 'down':
+			self.move_y = -1
 
 	def update(self):
 		self.rect.x += self.move_direction * self.move_x
