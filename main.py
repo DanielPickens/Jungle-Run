@@ -61,11 +61,10 @@ replay_btn  = Button(replay, (45,42), WIDTH//2 - 110, HEIGHT//2 + 20)
 home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
 exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
-
 # resets world level after player reset
 def reset_level(level):
-	global cur_score
-	cur_score = 0
+	global CUR_SCORE
+	CUR_SCORE = 0
 
 	data = load_level(level)
 	if data:
@@ -76,18 +75,18 @@ def reset_level(level):
 # 10, 340
 	return world
 
-score = 0
-cur_score = 0
+SCORE = 0
+CUR_SCORE = 0
 
-main_menu = True
-game_over = False
-level_won = False
-game_won = False
-running = True
-while running:
+MAIN_MENU = True
+GAME_OVER = False
+LEVEL_WON = False
+GAME_WON = False
+RUNNING = True
+while RUNNING:
 	for event in pygame.event.get():
 		if event.type == QUIT:
-			running = False
+			RUNNING = False
 
 	pressed_keys = pygame.key.get_pressed()
 
@@ -101,42 +100,42 @@ while running:
 	# drawing grid
 	# draw_lines(win)
 	# checks for main_menu game drawing of game play win or loss types
-	if main_menu:
+	if MAIN_MENU:
 		win.blit(jungle_run, (WIDTH//2 - WIDTH//8, HEIGHT//4))
 
 		play_game = play_btn.draw(win)
 		if play_game:
-			main_menu = False
-			game_over = False
-			game_won = False
-			score = 0
+			MAIN_MENU = False
+			GAME_OVER = False
+			GAME_WON = False
+			SCORE = 0
 
 	else:
 		
-		if not game_over and not game_won:
+		if not GAME_OVER and not GAME_WON:
 			
 			enemies_group.update(player)
 			platform_group.update()
 			exit_group.update(player)
 			if pygame.sprite.spritecollide(player, diamond_group, True):
 				sounds[0].play()
-				cur_score += 1
-				score += 1	
-			draw_text(win, f'{score}', ((WIDTH//tile_size - 2) * tile_size, tile_size//2 + 10))
+				CUR_SCORE += 1
+				SCORE += 1	
+			draw_text(win, f'{SCORE}', ((WIDTH//tile_size - 2) * tile_size, tile_size//2 + 10))
 			
-		game_over, level_won = player.update(pressed_keys, game_over, level_won, game_won)
+		GAME_OVER, LEVEL_WON = player.update(pressed_keys, GAME_OVER, LEVEL_WON, GAME_WON)
 
-		if game_over and not game_won:
+		if GAME_OVER and not GAME_WON:
 			replay = replay_btn.draw(win)
 			home = home_btn.draw(win)
 			exit = exit_btn.draw(win)
 
 			if replay:
-				score -= cur_score
+				SCORE -= CUR_SCORE
 				world = reset_level(level)
-				game_over = False
+				GAME_OVER = False
 			if home:
-				game_over = True
+				GAME_OVER = True
 				main_menu = True
 				bg = bg1
 				level = 1
@@ -144,27 +143,27 @@ while running:
 			if exit:
 				running = False
 
-		if level_won:
+		if LEVEL_WON:
 			if level <= max_level:
 				level += 1
 				game_level = f'levels/level{level}_data'
 				if os.path.exists(game_level):
 					data = []
 					world = reset_level(level)
-					level_won = False
-					score += cur_score
+					LEVEL_WON = False
+					SCORE += CUR_SCORE
 
 				bg = random.choice([bg1, bg2])
 			else:
-				game_won = True
+				GAME_WON = True
 				bg = bg1
 				win.blit(you_won, (WIDTH//4, HEIGHT // 4))
 				home = home_btn.draw(win)
 
 				if home:
-					game_over = True
-					main_menu = True
-					level_won = False
+					GAME_OVER = True
+					MAIN_MENU = True
+					LEVEL_WON = False
 					level = 1
 					world = reset_level(level)
 
