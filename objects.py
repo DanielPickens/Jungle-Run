@@ -460,6 +460,9 @@ class Bee(pygame.sprite.Sprite):
 
 		self.pos = self.rect.y
 		self.dx = 3
+		self.dy = 0
+		self.move_direction = 1  #changed collision detection in update for bee class when instance of class object attribute 'move_direction' collides with self.rect.x or self.rect.y
+		self.move_counter = 0
 
 	def update(self, player):
 		if self.rect.x >= player.rect.x:
