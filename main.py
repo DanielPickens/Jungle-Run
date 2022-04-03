@@ -5,17 +5,14 @@ from pygame.locals import *
 
 from objects import World, Player, Button, draw_lines, load_level, draw_text, sounds
 
-
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
-
 
 pygame.init()
 win = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('RUN')
 clock = pygame.time.Clock()
-FPS = 30
-
+FPS = 35
 
 # background images
 bg1 = pygame.image.load('assets/BG1.png')
@@ -24,16 +21,12 @@ bg = bg1
 sun = pygame.image.load('assets/sun.png')
 jungle_run = pygame.image.load('assets/9fWW38bLEdofv77bUPLIu8zLN6.jpg')
 you_won = pygame.image.load('assets/won.png')
-
-
 # loading level 1
 level = 1
-
 max_level = len(os.listdir('levels/'))
 data = load_level(level)
 
 player_pos = (10, 340)
-
 
 # creating world & sprite objects 
 water_group = pygame.sprite.Group()
