@@ -528,7 +528,7 @@ class Button(pygame.sprite.Sprite):
 
 
 # -------------------------------------------------------------------------------------------------
-#											 Custom Functions
+#												 Custom Functions
 def draw_lines(win):
 	for row in range(HEIGHT // tile_size + 1):
 		pygame.draw.line(win, WHITE, (0, tile_size*row), (WIDTH, tile_size*row), 2)

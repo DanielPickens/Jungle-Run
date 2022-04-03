@@ -5,14 +5,18 @@ from pygame.locals import *
 
 from objects import World, Player, Button, draw_lines, load_level, draw_text, sounds
 
+
 SIZE = WIDTH , HEIGHT= 1000, 650
 tile_size = 50
+
 
 pygame.init()
 win = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('RUN')
 clock = pygame.time.Clock()
-FPS = 35
+FPS = 40
+WHITE = (255, 255, 255)
+
 
 # background images
 bg1 = pygame.image.load('assets/BG1.png')
@@ -21,12 +25,14 @@ bg = bg1
 sun = pygame.image.load('assets/sun.png')
 jungle_run = pygame.image.load('assets/9fWW38bLEdofv77bUPLIu8zLN6.jpg')
 you_won = pygame.image.load('assets/won.png')
+
+
 # loading level 1
 level = 1
 max_level = len(os.listdir('levels/'))
 data = load_level(level)
-
 player_pos = (10, 340)
+
 
 # creating world & sprite objects 
 water_group = pygame.sprite.Group()
@@ -54,6 +60,9 @@ replay_btn  = Button(replay, (45,42), WIDTH//2 - 110, HEIGHT//2 + 20)
 home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
 exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
+
+
+
 # resets world level after player reset
 def reset_level(level):
 	global CUR_SCORE
@@ -79,6 +88,7 @@ RUNNING = True
 while RUNNING:
 	for event in pygame.event.get():
 		if event.type == QUIT:
+			
 			RUNNING = False
 
 	pressed_keys = pygame.key.get_pressed()
