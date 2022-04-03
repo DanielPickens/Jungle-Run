@@ -31,7 +31,7 @@ sounds = [diamond_fx, ]
 
 
 # loading images
-dead_img = pygame.image.load('assets/ghost.png')
+dead_img = pygame.image.load('assetsz/ghost.png')
 game_over_img = pygame.image.load('assets/gover.png')
 game_over_img = pygame.transform.scale(game_over_img, (300,250))
 game_over_rect = game_over_img.get_rect(center=(WIDTH//2, HEIGHT//2 - HEIGHT//6))
