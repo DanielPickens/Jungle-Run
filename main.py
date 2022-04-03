@@ -18,6 +18,16 @@ FPS = 40
 WHITE = (255, 255, 255)
 
 
+#DECORATORS
+#decorator for resetting level
+def reset_level_decorator(func):
+	def wrapper(*args, **kwargs):
+		global CUR_SCORE
+		CUR_SCORE = 0
+		func(*args, **kwargs)
+	return wrapper
+
+
 # background images
 bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
