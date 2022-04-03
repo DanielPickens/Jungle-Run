@@ -7,7 +7,7 @@ from objects import World, Player, Button, draw_lines, load_level, draw_text, so
 
 
 SIZE = WIDTH , HEIGHT= 1000, 650
-tile_size = 50
+TILE_SIZE = 50
 
 
 pygame.init()
@@ -27,7 +27,6 @@ def reset_level_decorator(func):
 		func(*args, **kwargs)
 	return wrapper
 
-
 # background images
 bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
@@ -38,9 +37,9 @@ you_won = pygame.image.load('assets/won.png')
 
 
 # loading level 1
-level = 1
+LEVEL = 1
 max_level = len(os.listdir('levels/'))
-data = load_level(level)
+data = load_level(LEVEL)
 player_pos = (10, 340)
 
 
@@ -60,25 +59,25 @@ player = Player(win, player_pos, world, groups)
 
 # creating buttons
 play= pygame.image.load('assets/play.png')
-replay = pygame.image.load('assets/replay.png')
-home = pygame.image.load('assets/home.png')
-exit = pygame.image.load('assets/exit.png')
+REPLAY = pygame.image.load('assets/replay.png')
+HOME = pygame.image.load('assets/home.png')
+EXIT = pygame.image.load('assets/exit.png')
 setting = pygame.image.load('assets/setting.png')
 
 play_btn = Button(play, (128, 64), WIDTH//2 - WIDTH // 16, HEIGHT//2)
-replay_btn  = Button(replay, (45,42), WIDTH//2 - 110, HEIGHT//2 + 20)
-home_btn  = Button(home, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
-exit_btn  = Button(exit, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
+replay_btn  = Button(REPLAY, (45,42), WIDTH//2 - 110, HEIGHT//2 + 20)
+home_btn  = Button(HOME, (45,42), WIDTH//2 - 20, HEIGHT//2 + 20)
+exit_btn  = Button(EXIT, (45,42), WIDTH//2 + 70, HEIGHT//2 + 20)
 
 
 
 
 # resets world level after player reset
-def reset_level(level):
+def reset_level(LEVEL):
 	global CUR_SCORE
 	CUR_SCORE = 0
 
-	data = load_level(level)
+	data = load_level(LEVEL)
 	if data:
 		for group in groups:
 			group.empty()
@@ -89,7 +88,7 @@ def reset_level(level):
 
 SCORE = 0
 CUR_SCORE = 0
-
+QUIT = False
 MAIN_MENU = True
 GAME_OVER = False
 LEVEL_WON = False
@@ -98,9 +97,7 @@ RUNNING = True
 while RUNNING:
 	for event in pygame.event.get():
 		if event.type == QUIT:
-			
 			RUNNING = False
-
 	pressed_keys = pygame.key.get_pressed()
 
 	# displaying background & sun image
@@ -116,15 +113,14 @@ while RUNNING:
 	if MAIN_MENU:
 		win.blit(jungle_run, (WIDTH//2 - WIDTH//8, HEIGHT//4))
 
-		play_game = play_btn.draw(win)
-		if play_game:
+		PLAY_GAME = play_btn.draw(win)
+		if PLAY_GAME:
 			MAIN_MENU = False
 			GAME_OVER = False
 			GAME_WON = False
 			SCORE = 0
 
 	else:
-		
 		if not GAME_OVER and not GAME_WON:
 			
 			enemies_group.update(player)
@@ -134,35 +130,35 @@ while RUNNING:
 				sounds[0].play()
 				CUR_SCORE += 1
 				SCORE += 1	
-			draw_text(win, f'{SCORE}', ((WIDTH//tile_size - 2) * tile_size, tile_size//2 + 10))
+			draw_text(win, f'{SCORE}', ((WIDTH//TILE_SIZE - 2) * TILE_SIZE, TILE_SIZE//2 + 10))
 			
 		GAME_OVER, LEVEL_WON = player.update(pressed_keys, GAME_OVER, LEVEL_WON, GAME_WON)
 
 		if GAME_OVER and not GAME_WON:
-			replay = replay_btn.draw(win)
-			home = home_btn.draw(win)
-			exit = exit_btn.draw(win)
+			REPLAY = replay_btn.draw(win)
+			HOME = home_btn.draw(win)
+			EXIT = exit_btn.draw(win)
 
-			if replay:
+			if REPLAY:
 				SCORE -= CUR_SCORE
-				world = reset_level(level)
+				world = reset_level(LEVEL)
 				GAME_OVER = False
-			if home:
+			if HOME:
 				GAME_OVER = True
-				main_menu = True
+				MAIN_MENU = True
 				bg = bg1
-				level = 1
-				world = reset_level(level)
-			if exit:
-				running = False
+				LEVEL = 1
+				world = reset_level(LEVEL)
+			if EXIT:
+				RUNNING = False
 
 		if LEVEL_WON:
-			if level <= max_level:
-				level += 1
-				game_level = f'levels/level{level}_data'
+			if LEVEL <= max_level:
+				LEVEL += 1
+				game_level = f'levels/level{LEVEL}_DATA'
 				if os.path.exists(game_level):
 					data = []
-					world = reset_level(level)
+					world = reset_level(LEVEL)
 					LEVEL_WON = False
 					SCORE += CUR_SCORE
 
@@ -171,14 +167,14 @@ while RUNNING:
 				GAME_WON = True
 				bg = bg1
 				win.blit(you_won, (WIDTH//4, HEIGHT // 4))
-				home = home_btn.draw(win)
+				HOME = home_btn.draw(win)
 
-				if home:
+				if HOME:
 					GAME_OVER = True
 					MAIN_MENU = True
 					LEVEL_WON = False
-					level = 1
-					world = reset_level(level)
+					LEVEL = 1
+					world = reset_level(LEVEL)
 
 	pygame.display.flip()
 	clock.tick(FPS)
