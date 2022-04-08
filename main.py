@@ -88,7 +88,7 @@ def reset_level(LEVEL):
 
 SCORE = 0
 CUR_SCORE = 0
-QUIT = False
+
 MAIN_MENU = True
 GAME_OVER = False
 LEVEL_WON = False
