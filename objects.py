@@ -127,6 +127,10 @@ class World:
 						#bottom moving platform
 						platform = MovingPlatform('down', col_count * tile_size, row_count * tile_size)
 						self.groups[6].add(platform)
+					if col == 31:
+						#top moving platform
+						platform = MovingPlatform('up', col_count * tile_size, row_count * tile_size)
+						self.groups[6].add(platform)
 
 
 				col_count += 1
