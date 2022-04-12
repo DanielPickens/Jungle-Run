@@ -26,7 +26,6 @@ def reset_level_decorator(func):
 		CUR_SCORE = 0
 		func(*args, **kwargs)
 	return wrapper
-
 # Decorator for resetting player
 def reset_player_decorator(func):
 	def wrapper(*args, **kwargs):
@@ -34,7 +33,6 @@ def reset_player_decorator(func):
 		CUR_SCORE = 0
 		func(*args, **kwargs)
 	return wrapper
-
 # Decorator for resetting world
 def reset_world_decorator(func):
 	def wrapper(*args, **kwargs):
@@ -42,7 +40,7 @@ def reset_world_decorator(func):
 		CUR_SCORE = 0
 		func(*args, **kwargs)
 	return wrapper
-
+	
 # background images
 bg1 = pygame.image.load('assets/BG1.png')
 bg2 = pygame.image.load('assets/BG2.png')
