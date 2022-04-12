@@ -19,8 +19,16 @@ WHITE = (255, 255, 255)
 
 
 #DECORATORS
-#decorator for resetting level
+#Decorator for resetting level
 def reset_level_decorator(func):
+	def wrapper(*args, **kwargs):
+		global CUR_SCORE
+		CUR_SCORE = 0
+		func(*args, **kwargs)
+	return wrapper
+
+# Decorator for resetting player
+def reset_player_decorator(func):
 	def wrapper(*args, **kwargs):
 		global CUR_SCORE
 		CUR_SCORE = 0
