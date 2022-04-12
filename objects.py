@@ -36,6 +36,19 @@ game_over_img = pygame.image.load('assets/gover.png')
 game_over_img = pygame.transform.scale(game_over_img, (300,250))
 game_over_rect = game_over_img.get_rect(center=(WIDTH//2, HEIGHT//2 - HEIGHT//6))
 
+#Decorator for resetting bee class
+def reset_bee_decorator(func, bee):
+	def wrapper(*args, **kwargs):
+		global CUR_SCORE
+		if bee == None:
+			func(*args, **kwargs)
+		else:
+			bee.reset( bee, *args, **kwargs)
+			func(*args, **kwargs)
+		CUR_SCORE = 0
+		func(*args, **kwargs)
+	return wrapper
+
 # creates background
 class World:
 	def __init__(self, win, data, groups):
@@ -532,6 +545,8 @@ class Button(pygame.sprite.Sprite):
 
 		win.blit(self.image, self.rect)
 		return action
+	def update(self, player): #for button class
+		pass
 
 
 # -------------------------------------------------------------------------------------------------
