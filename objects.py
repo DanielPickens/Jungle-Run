@@ -37,7 +37,7 @@ game_over_img = pygame.transform.scale(game_over_img, (300,250))
 game_over_rect = game_over_img.get_rect(center=(WIDTH//2, HEIGHT//2 - HEIGHT//6))
 
 #Decorator for resetting bee class
-def reset_bee_decorator(func, bee):
+def reset_bee_decorator(func, bee, self, x, y):
 	def wrapper(*args, **kwargs):
 		global CUR_SCORE
 		if bee == None:
@@ -144,6 +144,10 @@ class World:
 						#top moving platform
 						platform = MovingPlatform('up', col_count * tile_size, row_count * tile_size)
 						self.groups[6].add(platform)
+					if col == 32:
+						#Jewel
+						jewel = Jewel(col_count * tile_size, row_count * tile_size)
+						self.groups[3].add(jewel)
 
 
 				col_count += 1
@@ -462,6 +466,16 @@ class Diamond(pygame.sprite.Sprite):
 		self.rect.x = x
 		self.rect.y = y
 
+class Jewel(pygame.sprite.Sprite):
+	def __init__(self, x, y):
+		super(Jewel, self).__init__()
+
+		img_list = [f'assets/j{i+1}.png' for i in range(4)]
+		img = pygame.image.load(random.choice(img_list))
+		self.image = pygame.transform.scale(img, (tile_size, tile_size))
+		self.rect = self.image.get_rect()
+		self.rect.x = x
+		self.rect.y = y
 
 class Bee(pygame.sprite.Sprite):
 	def __init__(self, x, y):
