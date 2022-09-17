@@ -35,6 +35,7 @@ dead_img = pygame.image.load('assets/ghost.png')
 game_over_img = pygame.image.load('assets/gover.png')
 game_over_img = pygame.transform.scale(game_over_img, (300,250))
 game_over_rect = game_over_img.get_rect(center=(WIDTH//2, HEIGHT//2 - HEIGHT//6))
+level_won = False
 
 #Decorator for resetting bee class
 def reset_bee_decorator(func, bee, self, x, y):
@@ -348,6 +349,62 @@ class Player:
 		self.vel_y = 0
 		self.jumping = False
 		self.in_air = True
+
+	def CheckForCollisonsinReset(self):
+		game_over = False
+		level_won = False
+		dx = 0
+		dy = 0
+		col_threshold = 20
+
+		# check for collision with tiles
+		for tile in self.world.tile_list:
+			# check for collision in x direction
+			if tile[1].colliderect(self.rect.x + dx, self.rect.y, self.width, self.height):
+				dx = 0
+
+			# check for collision in y direction
+			if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.width, self.height):
+				# check if below the ground i.e. jumping
+				if self.vel_y < 0:
+					dy = tile[1].bottom - self.rect.top
+					self.vel_y = 0
+				# check if above the ground i.e. falling
+				elif self.vel_y >= 0:
+					dy = tile[1].top - self.rect.bottom
+					self.vel_y = 0
+					self.in_air = False
+
+		if pygame.sprite.spritecollide(self, self.groups[0], False):
+			game_over  = True
+		if pygame.sprite.spritecollide(self, self.groups[1], False):
+			game_over  = True
+		if pygame.sprite.spritecollide(self, self.groups[4], False):
+			game_over = True
+
+		# temp = self
+		# temp = temp.rect.x + 20
+		# if pygame.sprite.spritecollide(temp, self.groups[5], False):
+		# 	level_won = True
+		for gate in self.groups[5]:
+			if gate.rect.colliderect(self.rect.x - tile_size//2, self.rect.y, self.width, self.height):
+				level_won = True
+
+		if game_over:
+			dead_fx.play()
+
+		# check for collision with moving platform
+		for platform in self.groups[6]:
+			# collision in x direction
+			if platform.rect.colliderect(self.rect.x+dx, self.rect.y, self.width, self.height):
+				dx = 0
+
+			# collision in y direction
+			if platform.rect.colliderect(self.rect.x, self.rect.y + dy, self.width, self.height):
+				# check if below platform
+				if abs((self.rect.top + dy) - platform.rect.bottom) < col_threshold:
+					self.vel_y = 0
+					dy = (platform.rect.bottom - self.rect.top)
 
 class MovingPlatform(pygame.sprite.Sprite):
 	def __init__(self, type_, x, y):
